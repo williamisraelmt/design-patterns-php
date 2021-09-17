@@ -1,6 +1,6 @@
 <?php 
 
-namespace Helpers;
+namespace MaintenanceReport\Helpers;
 
 use Rakit\Validation\Validator;
 

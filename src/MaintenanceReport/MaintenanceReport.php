@@ -2,7 +2,7 @@
 
 namespace MaintenanceReport;
 
-use Factories\ResidenceTypeFactory;
+use MaintenanceReport\Factories\ResidenceTypeFactory;
 
 /** 
  *  Created by Williams Martínez.
@@ -21,11 +21,12 @@ class MaintenanceReport {
     public function create(string $type, array $options) {
 
         /** @var IResidenceStrategy  */
-        $strategy = new ResidenceTypeFactory($type, $options);
-
-        $strategy->setOptions( $options );
         
-        return $strategy->sendReport();
+        $strategy = ResidenceTypeFactory::create($type);
+
+        $strategy->setOptions($options);
+        
+        return $strategy->createReport();
 
     }   
 

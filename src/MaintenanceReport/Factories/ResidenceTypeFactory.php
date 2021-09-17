@@ -1,16 +1,16 @@
 <?php
 
-namespace Factories;
+namespace MaintenanceReport\Factories;
 
-use Enums\ResidenceTypeEnum;
-use Strategies\HouseStrategy;
-use Strategies\ApartmentStrategy;
-use Strategies\IResidenceStrategy;
-use Strategies\TrailerStrategy;
+use MaintenanceReport\Enums\ResidenceTypeEnum;
+use MaintenanceReport\Strategies\Create\HouseStrategy;
+use MaintenanceReport\Strategies\Create\ApartmentStrategy;
+use MaintenanceReport\Strategies\Create\ICreateReportStrategy;
+use MaintenanceReport\Strategies\Create\TrailerStrategy;
 
 class ResidenceTypeFactory {
 
-    public static function get(string $type): IResidenceStrategy {
+    public static function create(string $type): ICreateReportStrategy {
 
         switch ($type) {
 
@@ -28,7 +28,7 @@ class ResidenceTypeFactory {
             
             default: 
 
-                throw new \Exception("Unknown Residence Type");
+                throw new \InvalidArgumentException("Unknown Residence Type");
             
         }
 
