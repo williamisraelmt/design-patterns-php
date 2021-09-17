@@ -3,7 +3,7 @@
 use MaintenanceReport\MaintenanceReportService;
 use PHPUnit\Framework\TestCase;
 
-final class EmailTest extends TestCase
+final class CreateHouseMaintenaceReportTest extends TestCase
 {
     // public function testSupportsValidType(): void
     // {
