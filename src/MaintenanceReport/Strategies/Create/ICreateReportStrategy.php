@@ -2,6 +2,7 @@
 
 namespace MaintenanceReport\Strategies\Create;
 
+use MaintenanceReport\DTOs\ReportDTO;
 
 interface ICreateReportStrategy {
 
@@ -15,5 +16,5 @@ interface ICreateReportStrategy {
 
     public function getInvalidFields(): array;
 
-    public function handle(): array;
+    public function handle(): ReportDTO;
 }

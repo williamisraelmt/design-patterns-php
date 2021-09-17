@@ -28,13 +28,7 @@ class MaintenanceReportService {
         
         $report = $strategy->handle();
 
-        if ($report === null) {
-            
-            throw new \Exception("Report wasnt created");
-
-        }
-
-        // Here you could add the report to your database, or maybe turn this into a Pipeline to 1. Interact with the API, 
+        // Here you could add the report payload to your database
 
         return $report;
         

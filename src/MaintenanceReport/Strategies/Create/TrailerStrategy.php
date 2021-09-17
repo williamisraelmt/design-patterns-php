@@ -61,35 +61,28 @@ class TrailerStrategy implements ICreateReportStrategy {
 
     }
 
-    public function handle(): array {
+    public function handle(): ReportDTO {
         
         /**
          * Here you make you could have another class instaced using DI 
-         * which might contain the API for the HouseCompany, and also to translate from their structure to the structure you use in your API
+         * which might contain the API for the Trailer Company, and also to translate from their structure to the structure you use in your API
          * I.e: On their response their pk field is "TicketId" but in your app the field name is "custom_report_id"
          * and then return the data. 
          **/
 
-        if ($this->isValid()){
-            
-            // Make the call 
-
-            return [
-                'data' => null,
-                'errors' => $this->getInvalidFields()  
-            ];
-
-         }
+        if (!$this->isValid()){
+        
+            throw new \Exception("Invalid fields.");
+        
+        }
+        
 
         $dto = new ReportDTO();
 
         $dto->customReportId = rand(0, 100);
 
-        return [
-            'data' => $dto,
-            'errors' => [],
-        ];
-            
+        return $dto;
+          
 
     }
 
