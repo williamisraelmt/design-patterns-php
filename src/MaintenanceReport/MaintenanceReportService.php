@@ -16,18 +16,32 @@ use MaintenanceReport\Factories\ResidenceTypeFactory;
  *  Please feel more than welcomed to suggest any update to this code, code can always be improved.  
  */
 
-class MaintenanceReport {
+class MaintenanceReportService {
 
-    public function create(string $type, array $options) {
+    public function create(string $residenceType, array $options) {
 
         /** @var IResidenceStrategy  */
         
-        $strategy = ResidenceTypeFactory::create($type);
+        $strategy = ResidenceTypeFactory::create($residenceType);
 
         $strategy->setOptions($options);
         
-        return $strategy->handle();
+        $report = $strategy->handle();
 
+        if ($report === null) {
+            
+            throw new \Exception("Report wasnt created");
+
+        }
+
+        // Here you could add the report to your database, or maybe turn this into a Pipeline to 1. Interact with the API, 
+
+        return $report;
+        
     }   
+
+    public function update(string $residenceType) {
+        // TODO: Implement update method
+    }
 
 }

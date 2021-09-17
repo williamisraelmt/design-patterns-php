@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-use MaintenanceReport\MaintenanceReport;
+use MaintenanceReport\MaintenanceReportService;
 use PHPUnit\Framework\TestCase;
 
 final class EmailTest extends TestCase
@@ -14,7 +14,7 @@ final class EmailTest extends TestCase
     {
         $this->expectExceptionMessage("Unknown Residence Type");
 
-        $maintenace_report = new MaintenanceReport();
+        $maintenace_report = new MaintenanceReportService();
         
         $maintenace_report->create("invalid", []);
     }
