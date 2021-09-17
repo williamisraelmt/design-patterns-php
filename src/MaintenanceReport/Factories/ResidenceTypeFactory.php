@@ -32,6 +32,12 @@ class ResidenceTypeFactory {
             
         }
 
-    } 
+    }
+    
+    public static function update(string $type) {
+
+        //TODO: Implement update strategies
+        
+    }
 
 }

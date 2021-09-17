@@ -15,5 +15,5 @@ interface ICreateReportStrategy {
 
     public function getInvalidFields(): array;
 
-    public function createReport(): array;
+    public function handle(): array;
 }

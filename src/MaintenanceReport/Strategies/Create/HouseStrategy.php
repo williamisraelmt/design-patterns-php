@@ -63,7 +63,7 @@ class HouseStrategy implements ICreateReportStrategy {
 
     }
 
-    public function createReport(): array {
+    public function handle(): array {
         
         /**
          * Here you make you could have another class instaced using DI 

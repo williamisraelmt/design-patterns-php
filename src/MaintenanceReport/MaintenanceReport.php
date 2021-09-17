@@ -26,7 +26,7 @@ class MaintenanceReport {
 
         $strategy->setOptions($options);
         
-        return $strategy->createReport();
+        return $strategy->handle();
 
     }   
 

@@ -2,6 +2,7 @@
 
 namespace MaintenanceReport\Strategies\Create;
 
+use MaintenanceReport\DTOs\ReportDTO;
 use MaintenanceReport\Helpers\ValidationHelper;
 
 class ApartmentStrategy implements ICreateReportStrategy {
@@ -40,7 +41,7 @@ class ApartmentStrategy implements ICreateReportStrategy {
 
     }
 
-    public function createReport(): array {
+    public function handle(): array {
         
         /**
          * Here you make you could have another class instaced using DI 
@@ -54,14 +55,18 @@ class ApartmentStrategy implements ICreateReportStrategy {
             // Make the call 
 
             return [
-                'data' => [],
+                'data' => new ReportDTO(),
                 'errors' => $this->getInvalidFields()  
             ];
 
          }
 
+        $dto = new ReportDTO();
+
+        $dto->customReportId = rand(0, 100);
+
         return [
-            'data' => ['custom_report_id' => rand(1, 100)],
+            'data' => $dto,
             'errors' => [],
         ];
             
