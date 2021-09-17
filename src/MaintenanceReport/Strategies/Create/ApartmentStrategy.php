@@ -55,7 +55,7 @@ class ApartmentStrategy implements ICreateReportStrategy {
             // Make the call 
 
             return [
-                'data' => new ReportDTO(),
+                'data' => null,
                 'errors' => $this->getInvalidFields()  
             ];
 

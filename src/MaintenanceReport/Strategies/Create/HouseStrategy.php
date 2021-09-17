@@ -4,6 +4,7 @@ namespace MaintenanceReport\Strategies\Create;
 
 use MaintenanceReport\Enums\FieldTypesEnum;
 use MaintenanceReport\Helpers\ValidationHelper;
+use MaintenanceReport\DTOs\ReportDTO;
 
 class HouseStrategy implements ICreateReportStrategy {
 
@@ -72,19 +73,23 @@ class HouseStrategy implements ICreateReportStrategy {
          * and then return the data. 
          **/
 
-         if ($this->isValid()){
+        if ($this->isValid()){
             
             // Make the call 
 
             return [
-                'data' => [],
+                'data' => null,
                 'errors' => $this->getInvalidFields()  
             ];
 
          }
 
+        $dto = new ReportDTO();
+
+        $dto->customReportId = rand(0, 100);
+
         return [
-            'data' => ['custom_report_id' => rand(1, 100)],
+            'data' => $dto,
             'errors' => [],
         ];
             
