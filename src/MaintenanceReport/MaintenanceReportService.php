@@ -6,6 +6,9 @@ use MaintenanceReport\Factories\ResidenceTypeFactory;
 
 /** 
  *  Created by Williams Martínez.
+ *  The patterns used below are: 
+ *  - Factory Pattern -> Creational pattern (Create instance of objects which might depend on a $type parameter).
+ *  - Strategy Pattern -> Behavioral pattern (Each instance will process the code in their own way but will always return the same responses and will have the same methods).
  *  Imagine you have a Maintenance App, and your app acts like a broker between a customer that needs maintenance and maintenance companies (House, Department and Trailer), 
  *  , depending on the type you will submit a request to each maintenance company API.
  *  These maintenance companies api's require different fields and might have different validations, also, they might have different API responses 
